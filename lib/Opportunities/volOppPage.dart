@@ -22,14 +22,16 @@ class _volOppPageState extends State<volOppPage> {
                   child: Text('Volunteering Opportunities',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        fontSize: 15,
-                      )), //volunteering opportunities
+                        fontSize: 16,
+                        fontFamily: 'Helvetica',
+                        letterSpacing: 1,
+                      )), //volunteering opportunities text
                 ),
                 SizedBox(height: 20),
                 TextField(
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Colors.white,
+                    fillColor: Color(0xFFEFF0F6),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8.0),
                       borderSide: BorderSide.none,
