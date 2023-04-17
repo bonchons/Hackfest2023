@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
+import 'package:hackfest2023/profilePage/profile.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const volOppPage(),
+      home: const profile(),
     );
   }
 }
