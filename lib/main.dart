@@ -7,6 +7,7 @@ import 'package:hackfest2023/profilePage/profile.dart';
 // import 'package:hackfest2023/Login/register.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:hackfest2023/bnav.dart';
+import 'package:hackfest2023/constants.dart';
 
 // Future<void> main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
