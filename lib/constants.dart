@@ -12,12 +12,13 @@ Color hexToColor(String hex) {
 }
 
 class ColorConstants {
-  static Color bgColor = hexToColor('#F8CD81');
-  static Color appBarColor = hexToColor('#F8CD81');
-  static Color buttonColor = hexToColor('#D17B47');
-  static Color textColor = hexToColor('#003249');
-  static Color titleColor = hexToColor('#14142A');
-  static Color buttonTextColor = hexToColor('#F7F7FC');
-  static Color whiteBgImage = hexToColor('#FCFCFC');
-  static Color labelColor = hexToColor('#6E7191');
+  // static Color bgColor = hexToColor('#F8CD81');
+  // static Color appBarColor = hexToColor('#F8CD81');
+  // static Color buttonColor = hexToColor('#D17B47');
+  // static Color textColor = hexToColor('#003249');
+  // static Color titleColor = hexToColor('#14142A');
+  // static Color buttonTextColor = hexToColor('#F7F7FC');
+  // static Color whiteBgImage = hexToColor('#FCFCFC');
+  // static Color labelColor = hexToColor('#6E7191');
+  static Color bgColor = hexToColor('#00A6BD');
 }
