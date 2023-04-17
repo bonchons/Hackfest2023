@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 import 'package:hackfest2023/profilePage/profile.dart';
 import 'package:hackfest2023/Messages/message.dart';
+import 'package:hackfest2023/constants.dart';
 
 class Nav extends StatefulWidget {
   @override
@@ -29,7 +30,7 @@ class _NavState extends State<Nav> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: new Theme(
-          data: Theme.of(context).copyWith(canvasColor: Color(0xFF0079BD)),
+          data: Theme.of(context).copyWith(canvasColor: ColorConstants.bgColor),
           child: BottomNavigationBar(
             type: BottomNavigationBarType.fixed,
             items: const <BottomNavigationBarItem>[

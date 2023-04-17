@@ -20,7 +20,12 @@ class ColorConstants {
   // static Color buttonTextColor = hexToColor('#F7F7FC');
   // static Color whiteBgImage = hexToColor('#FCFCFC');
   // static Color labelColor = hexToColor('#6E7191');
-  static Color bgColor = hexToColor('#00A6BD');
+
   static Color darkGrey = hexToColor('#A0A3BD');
   static Color lightGrey = hexToColor('#EFF0F6');
+  static Color offWhite = hexToColor('#F7F7FC');
+  static Color textColor = hexToColor('#6E7191');
+  static Color redText = hexToColor('#BE5757');
+  static Color blueText = hexToColor('#0079BD');
+  static Color bgColor = hexToColor('#40A0D6');
 }

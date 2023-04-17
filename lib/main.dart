@@ -6,6 +6,7 @@ import 'package:hackfest2023/profilePage/profile.dart';
 // import 'package:hackfest2023/Login/register.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:hackfest2023/bnav.dart';
+import 'package:hackfest2023/constants.dart';
 
 // Future<void> main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Involve',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        scaffoldBackgroundColor: ColorConstants.bgColor,
+        appBarTheme: AppBarTheme(color: ColorConstants.bgColor),
       ),
       // home: const profile(),
       home: Nav(),
