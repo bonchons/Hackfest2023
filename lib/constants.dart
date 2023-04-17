@@ -21,4 +21,6 @@ class ColorConstants {
   // static Color whiteBgImage = hexToColor('#FCFCFC');
   // static Color labelColor = hexToColor('#6E7191');
   static Color bgColor = hexToColor('#00A6BD');
+  static Color darkGrey = hexToColor('#A0A3BD');
+  static Color lightGrey = hexToColor('#EFF0F6');
 }
