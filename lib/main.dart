@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
+import 'package:hackfest2023/constants.dart';
 import 'package:hackfest2023/profilePage/profile.dart';
 import 'package:hackfest2023/Login/login.dart';
 import 'package:hackfest2023/Login/register.dart';
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme: AppBarTheme(color: ColorConstants.bgColor),
+        scaffoldBackgroundColor: ColorConstants.bgColor,
       ),
       // home: const profile(),
-      home: const Register(),
+      home: const volOppPage(),
     );
   }
 }
