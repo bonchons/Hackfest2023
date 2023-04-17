@@ -10,6 +10,7 @@ class profile extends StatefulWidget {
 }
 
 class _profileState extends State<profile> {
+  final List<String> items = List.generate(5, (index) => "Item $index");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,11 +92,11 @@ class _profileState extends State<profile> {
                 children: <Widget>[
                   Container(
                     width: 550,
-                    height: 90,
+                    height: 75,
                     child: Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(left: 26.0, top: 30),
+                          padding: const EdgeInsets.only(left: 26.0, top: 15),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -129,9 +130,9 @@ class _profileState extends State<profile> {
 
               // --- OppBox
               Container(
+                margin: EdgeInsets.only(top: 0, left: 10, bottom: 15),
                 width: 350,
                 height: 150,
-                padding: const EdgeInsets.only(left: 5, bottom: 10),
                 child: GestureDetector(
                   onTap: () {
                     Navigator.push(
@@ -140,7 +141,7 @@ class _profileState extends State<profile> {
                     );
                   },
                   child: Material(
-                    elevation: 2,
+                    elevation: 3,
                     color: Colors.white,
                     shadowColor: Colors.black,
                     borderRadius: BorderRadius.circular(20),
@@ -285,6 +286,8 @@ class _profileState extends State<profile> {
                                 ],
                               ),
                             ),
+
+// --- LOGO
                           ], // stop here
                         ),
                       ],
@@ -343,189 +346,261 @@ class _profileState extends State<profile> {
 
                                 // ----- BOX!
                                 Container(
-                                  width: 350,
-                                  height: 150,
-                                  padding: const EdgeInsets.only(left: 5),
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) => volOppPage()),
+                                  height: 180.0,
+                                  child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: 5,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Padding(
+                                        padding: EdgeInsets.all(5.0),
+                                        child: Column(
+                                          children: <Widget>[
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          volOppPage()),
+                                                );
+                                              }, // should not be moved
+                                              child: Container(
+                                                margin: EdgeInsets.only(
+                                                    top: 6, left: 10),
+                                                width: 340,
+                                                height: 140,
+                                                child: Material(
+                                                  elevation: 3,
+                                                  color: Colors.white,
+                                                  shadowColor: Colors.black,
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      CircleAvatar(
+                                                        radius: 40,
+                                                        backgroundColor:
+                                                            Colors.blue,
+                                                        // child: Image.asset(
+                                                        //     'assets/images/RedAlert.png',
+                                                        //     fit: BoxFit.contain),
+                                                      ),
+                                                      SizedBox(width: 20),
+                                                      Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .start,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+// --- Date text
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 20.0,
+                                                                    right:
+                                                                        26.0),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  'Date:',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: const Color(
+                                                                        0xFF6E7191),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  ' 11PM - 5AM October 25, 2022',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: const Color(
+                                                                        0xFF6E7191),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          // --- Location text
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 5.0,
+                                                                    right:
+                                                                        26.0),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  'Location',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: const Color(
+                                                                        0xFF6E7191),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  ' Quezon City',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: const Color(
+                                                                        0xFF6E7191),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+
+                                                          // --- name of Org
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 15.0,
+                                                                    right:
+                                                                        26.0),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  'Red Alert Local Chapter',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: const Color(
+                                                                        0xFF6E7191),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+
+                                                          // --- Service
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 5.0,
+                                                                    right:
+                                                                        26.0),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  'Emergency Services',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: const Color(
+                                                                        0xFF6E7191),
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+
+                                                          // --- Difficulty text
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    top: 5.0,
+                                                                    right:
+                                                                        26.0),
+                                                            child: Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .spaceBetween,
+                                                              children: [
+                                                                Text(
+                                                                  'Difficulty: ',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .bold,
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: const Color(
+                                                                        0xFF6E7191),
+                                                                  ),
+                                                                ),
+                                                                Text(
+                                                                  ' High',
+                                                                  style:
+                                                                      TextStyle(
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontFamily:
+                                                                        'Questrial',
+                                                                    color: Colors
+                                                                        .red,
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ], // should not be moved
+                                        ),
                                       );
                                     },
-                                    child: Material(
-                                      elevation: 2,
-                                      color: Colors.white,
-                                      shadowColor: Colors.black,
-                                      borderRadius: BorderRadius.circular(20),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          CircleAvatar(
-                                            radius: 40,
-                                            backgroundColor: Colors.blue,
-                                            // child: Image.asset('assets/images/RedAlert.png',
-                                            //     fit: BoxFit.contain),
-                                          ),
-                                          SizedBox(width: 20),
-                                          Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.start,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              // --- Date text
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 20.0, right: 26.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      'Date:',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: const Color(
-                                                            0xFF6E7191),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      ' 11PM - 5AM October 25, 2022',
-                                                      style: TextStyle(
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: const Color(
-                                                            0xFF6E7191),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-
-                                              // --- Location text
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 5.0, right: 26.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      'Location',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: const Color(
-                                                            0xFF6E7191),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      ' Quezon City',
-                                                      style: TextStyle(
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: const Color(
-                                                            0xFF6E7191),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-
-                                              // --- name of Org
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 15.0, right: 26.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      'Red Alert Local Chapter',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: const Color(
-                                                            0xFF6E7191),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-
-                                              // --- Service
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 5.0, right: 26.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      'Emergency Services',
-                                                      style: TextStyle(
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: const Color(
-                                                            0xFF6E7191),
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-
-                                              // --- Difficulty text
-                                              Padding(
-                                                padding: const EdgeInsets.only(
-                                                    top: 5.0, right: 26.0),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceBetween,
-                                                  children: [
-                                                    Text(
-                                                      'Difficulty: ',
-                                                      style: TextStyle(
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: const Color(
-                                                            0xFF6E7191),
-                                                      ),
-                                                    ),
-                                                    Text(
-                                                      ' High',
-                                                      style: TextStyle(
-                                                        fontSize: 13,
-                                                        fontFamily: 'Questrial',
-                                                        color: Colors.red,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                            ], // stop here
-                                          ),
-                                        ],
-                                      ),
-                                    ),
                                   ),
-                                )
+                                ),
                               ],
                             ),
                           ),
