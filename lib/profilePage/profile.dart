@@ -11,6 +11,13 @@ class profile extends StatefulWidget {
 
 class _profileState extends State<profile> {
   final List<String> items = List.generate(5, (index) => "Item $index");
+  final List<String> name = [
+    'Red Alert',
+    'Safety Check',
+    'Bayanihan',
+    'Red Alert',
+    'Safety Check'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +42,7 @@ class _profileState extends State<profile> {
                       children: [
                         Padding(
                           padding:
-                              const EdgeInsets.only(left: 26.0, bottom: 0.5),
+                              const EdgeInsets.only(left: 25.0, bottom: 0.5),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -130,7 +137,8 @@ class _profileState extends State<profile> {
 
               // --- OppBox
               Container(
-                margin: EdgeInsets.only(top: 0, left: 10, bottom: 15),
+                margin:
+                    EdgeInsets.only(top: 0, left: 10, bottom: 15, right: 10),
                 width: 350,
                 height: 150,
                 child: GestureDetector(
@@ -305,7 +313,7 @@ class _profileState extends State<profile> {
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Container(
-                          height: 345,
+                          height: 400,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               border: Border.all(color: Colors.white),
@@ -367,9 +375,12 @@ class _profileState extends State<profile> {
                                               }, // should not be moved
                                               child: Container(
                                                 margin: EdgeInsets.only(
-                                                    top: 6, left: 10),
-                                                width: 340,
-                                                height: 140,
+                                                    top: 0,
+                                                    left: 5,
+                                                    bottom: 15,
+                                                    right: 10),
+                                                width: 350,
+                                                height: 150,
                                                 child: Material(
                                                   elevation: 3,
                                                   color: Colors.white,
@@ -596,6 +607,75 @@ class _profileState extends State<profile> {
                                               ),
                                             ),
                                           ], // should not be moved
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ), //end of uppOpp box container
+
+                                // --- START OF YOUR ORG TEXT
+                                Container(
+                                    padding: const EdgeInsets.only(left: 20.0),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          'Your Organizations',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                            fontFamily: 'Questrial',
+                                            color: Colors.black,
+                                          ),
+                                        ),
+                                      ],
+                                    )), // end of text container
+
+                                // --- CIRCLES START
+                                Container(
+                                  height: 130.0,
+                                  child: ListView.builder(
+                                    padding: EdgeInsets.only(left: 0.0, top: 5),
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: items.length,
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      return Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            horizontal: 20.0, vertical: 10.0),
+                                        child: Column(
+                                          children: <Widget>[
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          volOppPage()),
+                                                );
+                                              },
+                                              child: Material(
+                                                  child: CircleAvatar(
+                                                    radius: 40.0,
+                                                    backgroundColor:
+                                                        Colors.white,
+                                                    // child: Image.asset(logo[index],
+                                                    //     fit: BoxFit.contain),
+                                                  ),
+                                                  elevation: 3,
+                                                  shape: const CircleBorder(
+                                                      side: BorderSide.none)),
+                                            ),
+                                            SizedBox(height: 6.0),
+                                            Text(
+                                              name[index], // name of org
+                                              style: TextStyle(
+                                                color: Colors.grey,
+                                                fontSize: 15.0,
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       );
                                     },
