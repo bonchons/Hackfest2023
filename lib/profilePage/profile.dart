@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hackfest2023/Opportunities/volOppPage.dart';
 
 class profile extends StatefulWidget {
   const profile({super.key});
@@ -11,86 +12,284 @@ class profile extends StatefulWidget {
 class _profileState extends State<profile> {
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, Constraints) {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text("Hackfest"),
-          backgroundColor: const Color(0xFF0079BD),
-          shadowColor: Colors.transparent,
-        ),
-        body: SafeArea(
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Hackfest"),
+        backgroundColor: const Color(0xFF0079BD),
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Column(children: <Widget>[
+          Column(
+            children: [
+              // --- Welcome text
+              Container(
+                color: const Color(0xFF0079BD),
+                width: 550,
+                height: MediaQuery.of(context).size.height * 0.125,
+                child: Row(
                   children: [
-                    // --- Welcome text
-                    Container(
-                      color: const Color(0xFF0079BD),
-                      width: 550,
-                      height: MediaQuery.of(context).size.height * 0.035,
-                      child: Row(
+                    Padding(
+                      padding: const EdgeInsets.only(left: 26.0, bottom: 0.5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 25.0),
-                            child: Text(
-                              'Welcome, Julia!',
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Questrial',
-                                color: Colors.white,
-                              ),
+                          // --- Welcome text
+                          Text(
+                            'Welcome, Julia!',
+                            style: TextStyle(
+                              fontSize: 30,
+                              fontWeight: FontWeight.bold,
+                              //  fontFamily: 'Questrial',
+                              color: Colors.white,
+                            ),
+                          ),
+
+                          // --- Hours Volunteered text
+
+                          Text(
+                            ' Hours Volunteered',
+                            style: TextStyle(
+                              fontSize: 20,
+                              //  fontFamily: 'Questrial',
+                              color: Colors.white,
+                            ),
+                          ),
+
+                          // --- Hours  text
+                          Text(
+                            ' 345h',
+                            style: TextStyle(
+                              fontSize: 43,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Questrial',
+                              color: Colors.white,
                             ),
                           ),
                         ],
                       ),
                     ),
+                    Spacer(),
+                    CircleAvatar(
+                      radius: 40,
+                      backgroundColor: Colors.white,
+                    ),
+                    SizedBox(width: 30),
+                  ],
+                ),
+              ),
+            ], // stop here
+          ),
 
-                    // --- Hours Volunteered text
-                    Container(
-                      color: const Color(0xFF0079BD),
-                      width: 550,
-                      height: MediaQuery.of(context).size.height * 0.110,
-                      child: Row(
+          // Your opportunity text
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                color: const Color(0xFF0079BD),
+                width: 550,
+                height: 100,
+                child: Row(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 26.0, top: 50),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+// --- Your Opp text
+                          Text(
+                            'YOUR OPPORTUNITY',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                              fontFamily: 'Questrial',
+                            ),
+                          ),
+                          // --- Date text
+                          Text(
+                            'October 25, 2022',
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.white,
+                              fontFamily: 'Questrial',
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+
+// --- OppBox
+          Container(
+            color: const Color(0xFF0079BD),
+            width: 550,
+            height: 200,
+            padding: EdgeInsets.fromLTRB(15, 15, 25, 35),
+            child: Container(
+              margin: EdgeInsets.only(top: 6, left: 5),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => volOppPage()),
+                  );
+                },
+                child: Material(
+                  elevation: 3,
+                  color: Colors.white,
+                  shadowColor: Colors.black,
+                  borderRadius: BorderRadius.circular(20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      CircleAvatar(
+                        radius: 40,
+                        backgroundColor: Colors.blue,
+                        // child: Image.asset('assets/images/RedAlert.png',
+                        //     fit: BoxFit.contain),
+                      ),
+                      SizedBox(width: 20),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          // --- Date text
                           Padding(
                             padding:
-                                const EdgeInsets.only(left: 26.0, bottom: 0.5),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.center,
+                                const EdgeInsets.only(top: 20.0, right: 26.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  'Hours Volunteered',
+                                  'Date:',
                                   style: TextStyle(
-                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
                                     fontFamily: 'Questrial',
-                                    color: Colors.white,
+                                    color: const Color(0xFF6E7191),
                                   ),
                                 ),
                                 Text(
-                                  '345h',
+                                  ' 11PM - 5AM October 25, 2022',
                                   style: TextStyle(
-                                    fontSize: 43,
-                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
                                     fontFamily: 'Questrial',
-                                    color: Colors.white,
+                                    color: const Color(0xFF6E7191),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ],
+
+                          // --- Location text
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 5.0, right: 26.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Location',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
+                                    fontFamily: 'Questrial',
+                                    color: const Color(0xFF6E7191),
+                                  ),
+                                ),
+                                Text(
+                                  ' Quezon City',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontFamily: 'Questrial',
+                                    color: const Color(0xFF6E7191),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          // --- name of Org
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 15.0, right: 26.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Red Alert Local Chapter',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
+                                    fontFamily: 'Questrial',
+                                    color: const Color(0xFF6E7191),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          // --- Service
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 5.0, right: 26.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Emergency Services',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontFamily: 'Questrial',
+                                    color: const Color(0xFF6E7191),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          // --- Difficulty text
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(top: 5.0, right: 26.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  'Difficulty: ',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 13,
+                                    fontFamily: 'Questrial',
+                                    color: const Color(0xFF6E7191),
+                                  ),
+                                ),
+                                Text(
+                                  ' High',
+                                  style: TextStyle(
+                                    fontSize: 13,
+                                    fontFamily: 'Questrial',
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ], // stop here
                       ),
-                    ),
-                  ], // stop here
-                )
-              ]),
-        ),
-      );
-    });
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ]),
+      ),
+    );
   }
 }
