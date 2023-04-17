@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "762860467160",
+    "project_id": "involve-79dad",
+    "storage_bucket": "involve-79dad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762860467160:android:bf721a9445640c5310f8ad",
+        "android_client_info": {
+          "package_name": "com.example.hackfest2023"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "762860467160-vs0bo72q4je1nih2k3djkqiq49l4bcug.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHlY9T9qSylIcNazGF80OVxUppefSmYiY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "762860467160-vs0bo72q4je1nih2k3djkqiq49l4bcug.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "762860467160-42q66t5akdpgnh47u9587gf1023f0lif.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.hackfest2023"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
