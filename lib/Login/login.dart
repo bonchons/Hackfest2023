@@ -1,14 +1,33 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/constants.dart';
+import '../Backend/authentication_service.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Login> createState() => _LoginPageState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginPageState extends State<Login> {
+  String? errorMessage = '';
+  bool isLogin = true;
+
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
+
+  Future<void> signInWithEmailAndPassword() async {
+    try {
+      await Authentication().signInWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      setState(() {
+        errorMessage = e.message;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -53,6 +72,8 @@ class _LoginState extends State<Login> {
                   Container(
                     margin: EdgeInsets.only(top: 25),
                     child: TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      controller: _controllerEmail,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -60,7 +81,7 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(17.0),
                           borderSide: BorderSide.none,
                         ),
-                        hintText: "Username",
+                        hintText: "Email",
                         hintStyle: TextStyle(
                           fontSize: 16,
                           color: Color(0xFF6E7191),

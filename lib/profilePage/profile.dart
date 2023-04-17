@@ -16,7 +16,7 @@ class _profileState extends State<profile> {
         appBar: AppBar(
           title: Text("Hackfest"),
           backgroundColor: const Color(0xFF0079BD),
-          elevation: 0,
+          shadowColor: Colors.transparent,
         ),
         body: SafeArea(
           child: Column(
