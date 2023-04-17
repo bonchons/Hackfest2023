@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
+// import 'package:hackfest2023/Login/widget_tree.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 import 'package:hackfest2023/constants.dart';
 import 'package:hackfest2023/profilePage/profile.dart';
-import 'package:hackfest2023/Login/login.dart';
-import 'package:hackfest2023/Login/register.dart';
-import 'package:firebase_core/firebase_core.dart';
+// import 'package:hackfest2023/Login/login.dart';
+// import 'package:hackfest2023/Login/register.dart';
+// import 'package:firebase_core/firebase_core.dart';
+import 'package:hackfest2023/bnav.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+// Future<void> main() async {
+//   WidgetsFlutterBinding.ensureInitialized();
+//   await Firebase.initializeApp();
+//   runApp(const MyApp());
+// }
+
+void main() {
   runApp(const MyApp());
 }
 
@@ -25,7 +31,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: ColorConstants.bgColor,
       ),
       // home: const profile(),
-      home: const volOppPage(),
+      home: Nav(),
     );
   }
 }

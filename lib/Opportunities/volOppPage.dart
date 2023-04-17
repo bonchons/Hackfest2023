@@ -59,6 +59,15 @@ class _volOppPageState extends State<volOppPage> {
                             prefixIconColor: ColorConstants.darkGrey,
                           ),
                         ), //search bar--------------------------
+                        //----
+                        GestureDetector(
+                          onTap: () {},
+                          child: Container(
+                            child: Material(
+                              child: Row(),
+                            ),
+                          ),
+                        )
                       ],
                     ),
                   ),
