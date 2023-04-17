@@ -26,7 +26,7 @@ class _profileState extends State<profile> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // --- Welcome text
+                    // --- Welcome text //changed
                     Container(
                       color: const Color(0xFF0079BD),
                       width: 550,
