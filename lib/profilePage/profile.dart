@@ -178,8 +178,8 @@ class _profileState extends State<profile> {
                         CircleAvatar(
                           radius: 40,
                           backgroundColor: Colors.blue,
-                          // child: Image.asset('assets/images/RedAlert.png',
-                          //     fit: BoxFit.contain),
+                          child: Image.asset('assets/images/RedAlert.png',
+                              fit: BoxFit.contain),
                         ),
                         SizedBox(width: 20),
                         Column(
@@ -424,9 +424,10 @@ class _profileState extends State<profile> {
                                                         radius: 40,
                                                         backgroundColor:
                                                             Colors.blue,
-                                                        // child: Image.asset(
-                                                        //     'assets/images/RedAlert.png',
-                                                        //     fit: BoxFit.contain),
+                                                        child: Image.asset(
+                                                            'assets/images/RedAlert.png',
+                                                            fit:
+                                                                BoxFit.contain),
                                                       ),
                                                       SizedBox(width: 20),
                                                       Column(
