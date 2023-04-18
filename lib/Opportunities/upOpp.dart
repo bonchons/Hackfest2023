@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hackfest2023/Login/setupProf2';
+import 'package:hackfest2023/Login/setupProf2.dart';
 import 'package:hackfest2023/constants.dart';
 
 class upOpp extends StatefulWidget {
