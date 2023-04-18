@@ -30,4 +30,7 @@ class ColorConstants {
   static Color bgColor = hexToColor('#40A0D6');
   static Color green = hexToColor('#33C8A0');
   static Color greyText = hexToColor('#4E4B66');
+  static Color darkgreyText = hexToColor('#14142B');
+  static Color msgColor = hexToColor('#6E7191');
+  static Color grey1 = hexToColor('#EFF0F6');
 }

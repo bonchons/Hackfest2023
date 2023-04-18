@@ -17,6 +17,8 @@ class _oppPageState extends State<oppPage> {
   String location = "Quezon City";
   String whatDo =
       "As a volunteer, you will be providing on-scene patient care and treatment, and assist transporting patients to medical facilities. ";
+  String discussion =
+      "Chat with your fellow volunteers below. Get to know, ask questions, or verify details.";
   //----
   String btnText = "Volunteer";
   bool cancel = false;
@@ -249,18 +251,149 @@ class _oppPageState extends State<oppPage> {
                             color: ColorConstants.greyText),
                       ),
                       Text(
-                        'Hours to Volunteer: ',
+                        hours,
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Text(
+                        'Location: ',
                         style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                             fontFamily: 'Helvetica',
                             color: ColorConstants.greyText),
                       ),
+                      Text(
+                        location,
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
                     ],
                   ),
-                )
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Text(
+                        'Date: ',
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
+                      Text(
+                        date,
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      Text(
+                        'Difficulty: ',
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
+                      Text(
+                        difficulty,
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "What we'll be doing",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Helvetica',
+                        color: ColorConstants.darkgreyText),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    whatDo,
+                    style: TextStyle(
+                        fontSize: 12,
+                        letterSpacing: 1,
+                        fontFamily: 'Helvetica',
+                        color: ColorConstants.greyText),
+                  ),
+                ),
+                Container(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Discussion",
+                    style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'Helvetica',
+                        color: ColorConstants.darkgreyText),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    discussion,
+                    style: TextStyle(
+                        fontSize: 10,
+                        letterSpacing: 1,
+                        fontStyle: FontStyle.italic,
+                        fontFamily: 'Helvetica',
+                        color: ColorConstants.greyText),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsetsDirectional.only(top: 20),
+                  child: TextField(
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: ColorConstants.grey1,
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20.0),
+                            borderSide: BorderSide.none),
+                        hintText: "Write a message...",
+                        hintStyle: TextStyle(
+                          fontSize: 12,
+                          color: ColorConstants.msgColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        prefixIcon: Icon(Icons.send),
+                        prefixIconColor: ColorConstants.green),
+                    onTap: () {
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(
+                      //       builder: (context) => chatConvoPage()),
+                      // );
+                    },
+                  ),
+                ),
               ],
-            )
+            ),
           ],
         ),
       ),
