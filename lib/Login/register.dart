@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hackfest2023/Login/login.dart';
+import 'package:hackfest2023/Login/setupProf.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -123,8 +125,10 @@ class _RegisterState extends State<Register> {
                               color: Colors.white),
                         ),
                         onPressed: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => Login()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => setupProfile()));
                         },
                       ),
                     ),
@@ -151,10 +155,10 @@ class _RegisterState extends State<Register> {
                                 color: Color(0xFF0079BD)),
                           ),
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => Login()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Login()));
                           },
                         ),
                       ),
