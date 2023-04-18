@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:hackfest2023/Opportunities/upOpp.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 import 'package:hackfest2023/Opportunities/oppPage.dart';
+import 'package:hackfest2023/orgPage.dart';
 
 import '../Login/login.dart';
 
@@ -673,7 +674,7 @@ class _profileState extends State<profile> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          volOppPage()),
+                                                          orgPage()),
                                                 );
                                               },
                                               child: Material(
