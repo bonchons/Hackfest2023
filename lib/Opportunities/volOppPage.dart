@@ -17,6 +17,7 @@ class _volOppPageState extends State<volOppPage> {
   String difficulty = "High";
   String date = "11PM - 5AM Oct 25, 2022 ";
   String spots = "5 spots left";
+  String location = "Quezon City";
   //----
   @override
   Widget build(BuildContext context) {
@@ -191,7 +192,7 @@ class _volOppPageState extends State<volOppPage> {
                                                 margin:
                                                     EdgeInsets.only(bottom: 5),
                                                 child: Text(
-                                                  'Location',
+                                                  location,
                                                   style: TextStyle(
                                                       fontSize: 12,
                                                       fontFamily: 'Helvetica',
