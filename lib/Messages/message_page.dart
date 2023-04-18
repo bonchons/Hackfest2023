@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hackfest2023/constants.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -11,70 +12,60 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: ColorConstants.offWhite,
+        appBar: AppBar(),
         body: Padding(
-      padding: const EdgeInsets.all(16),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.topLeft,
-              child: Text('Messages',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    fontFamily: 'Helvetica',
-                    letterSpacing: 1,
-                  )), //volunteering opportunities text
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          padding: const EdgeInsets.all(16),
+          child: SingleChildScrollView(
+            child: Column(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: _buildCircularButton(Colors.black, "Button 1"),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: _buildCircularButton(Colors.black, "Red Alert"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: _buildCircularButton(Colors.black, "Mike"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: _buildCircularButton(Colors.black, "Maria"),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(8),
+                      child: _buildCircularButton(Colors.black, "Joe"),
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: _buildCircularButton(Colors.black, "Button 2"),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: _buildCircularButton(Colors.black, "Button 3"),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8),
-                  child: _buildCircularButton(Colors.black, "Button 4"),
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _buildChatBox(
+                        "Red Alert Volun...",
+                        "Hello, how are you?",
+                        "12:00 PM",
+                        Colors.blue,
+                        Icons.arrow_forward_ios,
+                      ),
+                      SizedBox(height: 20.0),
+                      _buildChatBox(
+                        "Joe (Volunteer)",
+                        "I'm doing great, thanks for asking.",
+                        "12:15 PM",
+                        Colors.green,
+                        Icons.arrow_forward_ios,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
-
-             Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _buildChatBox(
-                "John Doe",
-                "Hello, how are you?",
-                "12:00 PM",
-                Colors.blue,
-                Icons.arrow_forward_ios,
-              ),
-              SizedBox(height: 20.0),
-              _buildChatBox(
-                "Jane Smith",
-                "I'm doing great, thanks for asking.",
-                "12:15 PM",
-                Colors.green,
-                Icons.arrow_forward_ios,
-              ),
-            ], 
-          ),),
-          ],
-        ),
-
-        
-      ),
-    ));
+          ),
+        ));
   }
 }
 

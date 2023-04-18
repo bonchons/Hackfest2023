@@ -4,6 +4,7 @@ import 'package:hackfest2023/constants.dart';
 import 'package:hackfest2023/profilePage/profile.dart';
 import 'package:hackfest2023/Messages/message.dart';
 import 'package:hackfest2023/constants.dart';
+import 'package:hackfest2023/Messages/message_page.dart';
 
 class Nav extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _NavState extends State<Nav> {
   List<Widget> _widgetOptions = <Widget>[
     volOppPage(),
     profile(),
-    HomeChat(),
+    ChatPage(),
   ];
 
   void _onItemTap(int index) {
