@@ -33,7 +33,8 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: ColorConstants.bgColor,
         appBarTheme: AppBarTheme(color: ColorConstants.bgColor),
       ),
-      home: AuthPage(),
+
+      ///home: AuthPage(),
     );
   }
 }
