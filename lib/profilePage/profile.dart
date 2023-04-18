@@ -5,6 +5,7 @@ import 'package:hackfest2023/Opportunities/upOpp.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 import 'package:hackfest2023/Opportunities/oppPage.dart';
 import 'package:hackfest2023/orgPage.dart';
+import 'package:hackfest2023/settings.dart';
 
 import '../Login/login.dart';
 
@@ -30,12 +31,18 @@ class _profileState extends State<profile> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
 
+  void settings() {
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => SettingsScreen()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        actions: [IconButton(onPressed: singUserOut, icon: Icon(Icons.logout))],
+        // actions: [IconButton(onPressed: singUserOut, icon: Icon(Icons.logout))],
+        actions: [IconButton(onPressed: settings, icon: Icon(Icons.settings))],
         // backgroundColor: const Color(0xFF0079BD),
         elevation: 0,
       ),
