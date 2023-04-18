@@ -18,8 +18,12 @@ class startScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(
-              height: 500,
+            SizedBox(height: 70),
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(bottom: 30, top: 90),
+                child: Image.asset('assets/images/logo2.png'),
+              ),
             ),
             Text(
               slogan,
@@ -31,6 +35,7 @@ class startScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Container(
+                margin: EdgeInsets.only(bottom: 30),
                 child: Text(
                   desc,
                   style:

@@ -66,19 +66,21 @@ class _RegisterState extends State<Register> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Center(
-                  //   child: Container(
-                  //     margin: EdgeInsets.only(bottom: 80),
-                  //     child: Image.asset('assets/images/NewHelpJuanLogo.png'),
-                  //   ),
-                  // ),
-                  Container(
-                    child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF0079BD),
+                  Center(
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 30, top: 60),
+                      child: Image.asset('assets/images/logoblue.png'),
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      child: Text(
+                        'Sign Up',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF0079BD),
+                        ),
                       ),
                     ),
                   ),

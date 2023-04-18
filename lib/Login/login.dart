@@ -71,18 +71,20 @@ class _LoginPageState extends State<Login> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Center(
-                      // child: Container(
-                      //   margin: EdgeInsets.only(bottom: 100),
-                      //   child: Image.asset('assets/images/HelpJuan Logo (2).png'),
-                      // ),
-                      ),
-                  Container(
-                    child: Text(
-                      'Log In',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                    child: Container(
+                      margin: EdgeInsets.only(bottom: 30, top: 90),
+                      child: Image.asset('assets/images/logo.png'),
+                    ),
+                  ),
+                  Center(
+                    child: Container(
+                      child: Text(
+                        'Log In',
+                        style: TextStyle(
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
