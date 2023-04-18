@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:hackfest2023/Login/setupProf3.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -30,15 +29,22 @@ class _SetUpProfileScreenState extends State<SetUpProfileScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: Text('Set Up Profile'), centerTitle: true, elevation: 0, backgroundColor: Colors.transparent),
+        appBar: AppBar(
+            title: Text('Set Up Profile'),
+            centerTitle: true,
+            elevation: 0,
+            backgroundColor: Colors.transparent),
         body: Padding(
           padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text('Personal Information', style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+              Text('Personal Information',
+                  style:
+                      TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
               SizedBox(height: 8.0),
-              Text('Please fill in the following information', style: TextStyle(fontSize: 12.0)),
+              Text('Please fill in the following information',
+                  style: TextStyle(fontSize: 12.0)),
               SizedBox(height: 32.0),
               TextField(
                 controller: _nameController,
@@ -59,11 +65,15 @@ class _SetUpProfileScreenState extends State<SetUpProfileScreen> {
               Align(
                 alignment: Alignment.center,
                 child: ElevatedButton(
-                  onPressed: _nameController.text.isNotEmpty && _ageController.text.isNotEmpty && _locationController.text.isNotEmpty ? () { /* TODO: navigate to next screen */ } : null,
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProfileSetup()));
+                  },
                   child: Text('Confirm', style: TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
                     primary: Colors.green,
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(32.0)),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(32.0)),
                     minimumSize: Size(double.infinity, 50.0),
                   ),
                 ),
