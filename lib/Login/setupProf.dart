@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/constants.dart';
+import 'package:hackfest2023/Login/setupProf2.dart';
 
 class setupProfile extends StatefulWidget {
   const setupProfile({super.key});
@@ -63,7 +64,12 @@ class _setupProfileState extends State<setupProfile> {
               alignment: Alignment.center,
               child: ElevatedButton(
                 onPressed: _selectedAvatarIndex != -1
-                    ? () {/* TODO: navigate to next screen */}
+                    ? () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SetUpProfileScreen()));
+                      }
                     : null,
                 child: Text('Confirm'),
               ),

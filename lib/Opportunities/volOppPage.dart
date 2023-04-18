@@ -23,8 +23,7 @@ class _volOppPageState extends State<volOppPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shadowColor: Colors.transparent,
-      ),
+          shadowColor: Colors.transparent, automaticallyImplyLeading: false),
       body: SingleChildScrollView(
         child: Column(
           children: [

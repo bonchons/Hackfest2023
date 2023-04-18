@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/Backend/auth_page.dart';
 import 'package:hackfest2023/constants.dart';
+import 'package:hackfest2023/Login/register.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -191,10 +192,10 @@ class _LoginPageState extends State<Login> {
                                 color: Colors.white),
                           ),
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => Register()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Register()));
                           },
                         ),
                       ),

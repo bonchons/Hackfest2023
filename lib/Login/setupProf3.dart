@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hackfest2023/bnav.dart';
 import 'package:hackfest2023/constants.dart';
+import 'package:hackfest2023/Opportunities/volOppPage.dart';
 
 class ProfileSetupScreen extends StatefulWidget {
   @override
@@ -110,7 +112,10 @@ class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
                     minimumSize: Size(100, 45),
                     backgroundColor: ColorConstants.green,
                     shadowColor: Colors.transparent),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => Nav()));
+                },
                 child: Text(
                   'Confirm',
                   style: TextStyle(
