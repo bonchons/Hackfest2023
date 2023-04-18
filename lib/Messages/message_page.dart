@@ -13,7 +13,9 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: ColorConstants.offWhite,
-        appBar: AppBar(),
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+        ),
         body: Padding(
           padding: const EdgeInsets.all(16),
           child: SingleChildScrollView(

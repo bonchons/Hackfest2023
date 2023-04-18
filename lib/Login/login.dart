@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/Backend/auth_page.dart';
+import 'package:hackfest2023/bnav.dart';
 import 'package:hackfest2023/constants.dart';
 import 'package:hackfest2023/Login/register.dart';
 
@@ -27,40 +28,31 @@ class _LoginPageState extends State<Login> {
           );
         });
 
-    void wrongEmailMessage() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            title: Text('Incorrect Email'),
-          );
-        },
-      );
-    }
-
-    void wrongPasswordMessage() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            title: Text('Incorrect Password'),
-          );
-        },
-      );
-    }
-
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
       Navigator.pop(context);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Nav()));
     } on FirebaseAuthException catch (e) {
       Navigator.pop(context);
-      if (e.code == 'user-not-found') {
-        wrongEmailMessage();
-      } else if (e.code == 'wrong-password') {
-        wrongPasswordMessage();
-      }
+      showErrorMessage(e.code);
     }
+  }
+
+  void showErrorMessage(String message) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Center(
+            child: Text(
+              message,
+              style: const TextStyle(color: Colors.black),
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override

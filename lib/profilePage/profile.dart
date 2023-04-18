@@ -4,6 +4,8 @@ import 'package:flutter/rendering.dart';
 import 'package:hackfest2023/Opportunities/upOpp.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 
+import '../Login/login.dart';
+
 class profile extends StatefulWidget {
   const profile({super.key});
 
@@ -23,13 +25,14 @@ class _profileState extends State<profile> {
 
   void singUserOut() {
     FirebaseAuth.instance.signOut();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hackfest"),
+        automaticallyImplyLeading: false,
         actions: [IconButton(onPressed: singUserOut, icon: Icon(Icons.logout))],
         // backgroundColor: const Color(0xFF0079BD),
         elevation: 0,
