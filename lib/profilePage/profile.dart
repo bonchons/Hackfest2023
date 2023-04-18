@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hackfest2023/Opportunities/upOpp.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 
 class profile extends StatefulWidget {
@@ -347,14 +348,24 @@ class _profileState extends State<profile> {
                                             color: Colors.black,
                                           ),
                                         ),
-                                        Text(
-                                          ' See All',
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            fontFamily: 'Questrial',
-                                            color: Colors.green,
+                                        GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => upOpp(),
+                                              ),
+                                            );
+                                          },
+                                          child: Text(
+                                            ' See All',
+                                            style: TextStyle(
+                                              fontSize: 15,
+                                              fontFamily: 'Questrial',
+                                              color: Colors.green,
+                                            ),
                                           ),
-                                        ),
+                                        )
                                       ],
                                     )),
 
