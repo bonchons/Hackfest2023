@@ -26,8 +26,10 @@ class _setupProfileState extends State<setupProfile> {
     return Scaffold(
       backgroundColor: ColorConstants.offWhite,
       appBar: AppBar(
-          title: Text('Set Up Profile'),
-          centerTitle: true,
+          // title: Text('Set Up Profile'),
+          // centerTitle: true,
+          // leading: BackButton(color: ColorConstants.bgColor),
+          automaticallyImplyLeading: false,
           elevation: 0,
           backgroundColor: Colors.transparent),
       body: Padding(
@@ -35,10 +37,27 @@ class _setupProfileState extends State<setupProfile> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(bottom: 60),
+              child: Text(
+                'Set Up Profile',
+                style: TextStyle(
+                    fontSize: 24,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2,
+                    fontFamily: 'Helvetica'),
+              ),
+            ),
             Text('Icon',
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.bold,
+                    color: ColorConstants.greyText)),
             SizedBox(height: 8.0),
-            Text('Select your appearance', style: TextStyle(fontSize: 12.0)),
+            Text('Select your appearance',
+                style:
+                    TextStyle(fontSize: 12.0, color: ColorConstants.greyText)),
             SizedBox(height: 16.0),
             GridView.count(
               crossAxisCount: 3,
@@ -51,7 +70,7 @@ class _setupProfileState extends State<setupProfile> {
                           setState(() => _selectedAvatarIndex = index);
                         },
                         child: Padding(
-                          padding: EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(20.0),
                           child: CircleAvatar(
                             child: Image.asset(_avatars[index]),
                             radius: _selectedAvatarIndex == index ? 48.0 : 32.0,
@@ -60,18 +79,28 @@ class _setupProfileState extends State<setupProfile> {
                       )),
             ),
             SizedBox(height: 16.0),
-            Align(
-              alignment: Alignment.center,
-              child: ElevatedButton(
-                onPressed: _selectedAvatarIndex != -1
-                    ? () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SetUpProfileScreen()));
-                      }
-                    : null,
-                child: Text('Confirm'),
+            Container(
+              margin: EdgeInsets.only(top: 160),
+              child: Align(
+                alignment: Alignment.center,
+                child: ElevatedButton(
+                  onPressed: _selectedAvatarIndex != -1
+                      ? () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SetUpProfileScreen()));
+                        }
+                      : null,
+                  style: ElevatedButton.styleFrom(
+                    minimumSize: Size(300, 45),
+                    backgroundColor: ColorConstants.green,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                  ),
+                  child: Text('Confirm'),
+                ),
               ),
             )
           ],
