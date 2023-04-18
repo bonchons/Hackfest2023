@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
@@ -18,12 +19,17 @@ class _profileState extends State<profile> {
     'Red Alert',
     'Safety Check'
   ];
+
+  void singUserOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text("Hackfest"),
-
+        actions: [IconButton(onPressed: singUserOut, icon: Icon(Icons.logout))],
         // backgroundColor: const Color(0xFF0079BD),
         elevation: 0,
       ),

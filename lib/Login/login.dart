@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hackfest2023/Backend/auth_page.dart';
 import 'package:hackfest2023/constants.dart';
-import '../Backend/authentication_service.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -14,17 +14,51 @@ class _LoginPageState extends State<Login> {
   String? errorMessage = '';
   bool isLogin = true;
 
-  final TextEditingController _controllerEmail = TextEditingController();
-  final TextEditingController _controllerPassword = TextEditingController();
+  final _controllerEmail = TextEditingController();
+  final _controllerPassword = TextEditingController();
 
-  Future<void> signInWithEmailAndPassword() async {
+  void signUserIn() async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        });
+
+    void wrongEmailMessage() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(
+            title: Text('Incorrect Email'),
+          );
+        },
+      );
+    }
+
+    void wrongPasswordMessage() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(
+            title: Text('Incorrect Password'),
+          );
+        },
+      );
+    }
+
     try {
-      await Authentication().signInWithEmailAndPassword(
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
+      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      setState(() {
-        errorMessage = e.message;
-      });
+      Navigator.pop(context);
+      if (e.code == 'user-not-found') {
+        wrongEmailMessage();
+      } else if (e.code == 'wrong-password') {
+        wrongPasswordMessage();
+      }
     }
   }
 
@@ -92,6 +126,8 @@ class _LoginPageState extends State<Login> {
                   Container(
                     margin: EdgeInsets.only(top: 25),
                     child: TextField(
+                      controller: _controllerPassword,
+                      obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -127,6 +163,7 @@ class _LoginPageState extends State<Login> {
                               color: Color(0xFF0079BD)),
                         ),
                         onPressed: () {
+                          signUserIn();
                           // Navigator.push(context,
                           //     MaterialPageRoute(builder: (context) => Nav()));
                         },

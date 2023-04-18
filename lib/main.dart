@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hackfest2023/Backend/auth_page.dart';
+import 'package:hackfest2023/Login/login.dart';
 // import 'package:hackfest2023/Login/widget_tree.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 import 'package:hackfest2023/constants.dart';
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: ColorConstants.bgColor),
       ),
       // home: const profile(),
-      home: Nav(),
+      home: AuthPage(),
       // home: setupProfile(),
     );
   }
