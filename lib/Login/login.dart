@@ -1,54 +1,30 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:hackfest2023/Login/register.dart';
 import 'package:hackfest2023/constants.dart';
-
-import '../bnav.dart';
+import '../Backend/authentication_service.dart';
 
 class Login extends StatefulWidget {
-  Login({super.key});
+  const Login({super.key});
 
   @override
   State<Login> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<Login> {
-  final _controllerEmail = TextEditingController();
-  final _controllerPassword = TextEditingController();
+  String? errorMessage = '';
+  bool isLogin = true;
 
-  void signUserIn() async {
-    void wrongEmailMessage() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            title: Text('Incorrect Email'),
-          );
-        },
-      );
-    }
+  final TextEditingController _controllerEmail = TextEditingController();
+  final TextEditingController _controllerPassword = TextEditingController();
 
-    void wrongPasswordMessage() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            title: Text('Incorrect Password'),
-          );
-        },
-      );
-    }
-
+  Future<void> signInWithEmailAndPassword() async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await Authentication().signInWithEmailAndPassword(
           email: _controllerEmail.text, password: _controllerPassword.text);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Nav()));
     } on FirebaseAuthException catch (e) {
-      if (e.code == 'user-not-found') {
-        wrongEmailMessage();
-      } else if (e.code == 'wrong-password') {
-        wrongPasswordMessage();
-      }
+      setState(() {
+        errorMessage = e.message;
+      });
     }
   }
 
@@ -116,8 +92,6 @@ class _LoginPageState extends State<Login> {
                   Container(
                     margin: EdgeInsets.only(top: 25),
                     child: TextField(
-                      controller: _controllerPassword,
-                      obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,
@@ -153,7 +127,8 @@ class _LoginPageState extends State<Login> {
                               color: Color(0xFF0079BD)),
                         ),
                         onPressed: () {
-                          signUserIn();
+                          // Navigator.push(context,
+                          //     MaterialPageRoute(builder: (context) => Nav()));
                         },
                       ),
                     ),
@@ -179,10 +154,10 @@ class _LoginPageState extends State<Login> {
                                 color: Colors.white),
                           ),
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const Register()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => Register()));
                           },
                         ),
                       ),
