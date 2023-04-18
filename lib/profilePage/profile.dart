@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:hackfest2023/Opportunities/upOpp.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
+import 'package:hackfest2023/Opportunities/oppPage.dart';
 
 import '../Login/login.dart';
 
@@ -72,7 +73,7 @@ class _profileState extends State<profile> {
                               Text(
                                 ' Hours Volunteered',
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 18,
                                   //  fontFamily: 'Questrial',
                                   color: Colors.white,
                                 ),
@@ -82,7 +83,7 @@ class _profileState extends State<profile> {
                               Text(
                                 ' 345h',
                                 style: TextStyle(
-                                  fontSize: 43,
+                                  fontSize: 35,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Questrial',
                                   color: Colors.white,
@@ -155,7 +156,7 @@ class _profileState extends State<profile> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => volOppPage()),
+                      MaterialPageRoute(builder: (context) => oppPage()),
                     );
                   },
                   child: Material(
@@ -390,7 +391,7 @@ class _profileState extends State<profile> {
                                                   context,
                                                   MaterialPageRoute(
                                                       builder: (context) =>
-                                                          volOppPage()),
+                                                          oppPage()),
                                                 );
                                               }, // should not be moved
                                               child: Container(
