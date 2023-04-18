@@ -29,4 +29,5 @@ class ColorConstants {
   static Color blueText = hexToColor('#0079BD');
   static Color bgColor = hexToColor('#40A0D6');
   static Color green = hexToColor('#33C8A0');
+  static Color greyText = hexToColor('#4E4B66');
 }

@@ -33,8 +33,8 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: ColorConstants.bgColor),
       ),
       // home: const profile(),
-      // home: Nav(),
-      home: setupProfile(),
+      home: Nav(),
+      // home: setupProfile(),
     );
   }
 }

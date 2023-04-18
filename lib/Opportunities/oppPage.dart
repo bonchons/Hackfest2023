@@ -13,6 +13,10 @@ class _oppPageState extends State<oppPage> {
   String difficulty = "High";
   String date = "11PM - 5AM Oct 25, 2022 ";
   String spots = "5 spots left";
+  String hours = "100 hours";
+  String location = "Quezon City";
+  String whatDo =
+      "As a volunteer, you will be providing on-scene patient care and treatment, and assist transporting patients to medical facilities. ";
   //----
   String btnText = "Volunteer";
   bool cancel = false;
@@ -44,7 +48,10 @@ class _oppPageState extends State<oppPage> {
   volText() {
     setState(() {
       btnText = 'Volunteer';
-      // Replace with your logic
+      cancel = false;
+      setState(() {
+        _hasBeenPressed = !_hasBeenPressed;
+      });
     });
   }
 
@@ -83,13 +90,9 @@ class _oppPageState extends State<oppPage> {
                         child: Container(
                           child: OutlinedButton(
                             onPressed: () {
-                              volText();
-                              setState(() {
-                                _hasBeenPressed = !_hasBeenPressed;
-                              });
-                              cancel = false;
                               Navigator.of(context, rootNavigator: true)
                                   .pop('dialog');
+                              volText();
                             },
                             style: OutlinedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -234,6 +237,28 @@ class _oppPageState extends State<oppPage> {
                     ),
                   ),
                 ),
+                Container(
+                  child: Row(
+                    children: [
+                      Text(
+                        'Hours to Volunteer: ',
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
+                      Text(
+                        'Hours to Volunteer: ',
+                        style: TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Helvetica',
+                            color: ColorConstants.greyText),
+                      ),
+                    ],
+                  ),
+                )
               ],
             )
           ],
