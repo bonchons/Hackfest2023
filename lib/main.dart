@@ -8,6 +8,7 @@ import 'package:hackfest2023/profilePage/profile.dart';
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:hackfest2023/bnav.dart';
 import 'package:hackfest2023/constants.dart';
+import 'package:hackfest2023/Login/setupProf.dart';
 
 // Future<void> main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(color: ColorConstants.bgColor),
       ),
       // home: const profile(),
-      home: Nav(),
+      // home: Nav(),
+      home: setupProfile(),
     );
   }
 }

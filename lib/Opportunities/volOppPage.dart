@@ -1,6 +1,9 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:hackfest2023/Login/setupProf.dart';
 import 'package:hackfest2023/constants.dart';
 import 'package:hackfest2023/Opportunities/oppPage.dart';
+import 'package:hackfest2023/Login/setupProf.dart';
 
 class volOppPage extends StatefulWidget {
   const volOppPage({super.key});
