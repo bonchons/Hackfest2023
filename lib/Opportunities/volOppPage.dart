@@ -133,7 +133,7 @@ class _volOppPageState extends State<volOppPage> {
                                               radius: 30,
                                               backgroundColor: Colors.black,
                                               child: Image.asset(
-                                                  'assets/images/settings.png',
+                                                  'assets/images/RedAlert.png',
                                                   fit: BoxFit.contain),
                                             ),
                                           ),
@@ -311,7 +311,7 @@ class _volOppPageState extends State<volOppPage> {
                                               radius: 30,
                                               backgroundColor: Colors.black,
                                               child: Image.asset(
-                                                  'assets/images/settings.png',
+                                                  'assets/images/RedAlert.png',
                                                   fit: BoxFit.contain),
                                             ),
                                           ),
@@ -489,7 +489,7 @@ class _volOppPageState extends State<volOppPage> {
                                               radius: 30,
                                               backgroundColor: Colors.black,
                                               child: Image.asset(
-                                                  'assets/images/settings.png',
+                                                  'assets/images/RedAlert.png',
                                                   fit: BoxFit.contain),
                                             ),
                                           ),
