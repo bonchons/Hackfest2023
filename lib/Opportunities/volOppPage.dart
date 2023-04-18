@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/constants.dart';
+import 'package:hackfest2023/Opportunities/oppPage.dart';
 
 class volOppPage extends StatefulWidget {
   const volOppPage({super.key});
@@ -67,7 +68,10 @@ class _volOppPageState extends State<volOppPage> {
                         ), //search bar--------------------------
                         //----
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => oppPage()));
+                          },
                           child: Container(
                             margin: EdgeInsets.only(top: 15),
                             width: 350,
