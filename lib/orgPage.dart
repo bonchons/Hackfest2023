@@ -37,7 +37,7 @@ class _orgPageState extends State<orgPage> {
                         child: CircleAvatar(
                           radius: 35,
                           backgroundColor: Colors.black,
-                          child: Image.asset('assets/images/settings.png',
+                          child: Image.asset('assets/images/RedAlert.png',
                               fit: BoxFit.contain),
                         ),
                       ),
@@ -245,7 +245,7 @@ class _orgPageState extends State<orgPage> {
                                         radius: 30,
                                         backgroundColor: Colors.black,
                                         child: Image.asset(
-                                            'assets/images/settings.png',
+                                            'assets/images/RedAlert.png',
                                             fit: BoxFit.contain),
                                       ),
                                     ),
@@ -414,7 +414,7 @@ class _orgPageState extends State<orgPage> {
                                         radius: 30,
                                         backgroundColor: Colors.black,
                                         child: Image.asset(
-                                            'assets/images/settings.png',
+                                            'assets/images/RedAlert.png',
                                             fit: BoxFit.contain),
                                       ),
                                     ),

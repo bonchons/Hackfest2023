@@ -8,57 +8,83 @@ class startScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String slogan = "Get Involve, To be Involved!";
+    String desc =
+        "Involve is an app where you can explore volunteer opportunities around your area. Be Involved today!";
+
     return Scaffold(
       backgroundColor: ColorConstants.offWhite,
       appBar: null,
-      body: Column(
-        children: [
-          Text(
-            'lorem ipsum lorem ipsum',
-            style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                color: ColorConstants.greyText),
-          ),
-          Container(
-            child: OutlinedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Login()));
-              },
-              style: OutlinedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: 500,
+            ),
+            Text(
+              slogan,
+              style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  color: ColorConstants.greyText),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Container(
+                child: Text(
+                  desc,
+                  style:
+                      TextStyle(fontSize: 12, color: ColorConstants.greyText),
+                  textAlign: TextAlign.center,
                 ),
-                minimumSize: Size(100, 45),
-                backgroundColor: ColorConstants.green,
-              ),
-              child: Text(
-                'Log in',
-                style: TextStyle(color: Colors.white),
               ),
             ),
-          ),
-          Container(
-            child: OutlinedButton(
-              onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Register()));
-              },
-              style: OutlinedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => Login()));
+                  },
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    minimumSize: Size(300, 45),
+                    backgroundColor: ColorConstants.green,
+                  ),
+                  child: Text(
+                    'Log in',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-                minimumSize: Size(100, 45),
-                backgroundColor: ColorConstants.offWhite,
-              ),
-              child: Text(
-                'Sign up',
-                style: TextStyle(color: ColorConstants.green),
               ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                child: OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => Register()));
+                  },
+                  style: OutlinedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    minimumSize: Size(300, 45),
+                    backgroundColor: ColorConstants.offWhite,
+                  ),
+                  child: Text(
+                    'Sign up',
+                    style: TextStyle(color: ColorConstants.green),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
