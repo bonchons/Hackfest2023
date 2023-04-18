@@ -15,6 +15,7 @@ class _oppPageState extends State<oppPage> {
   String spots = "5 spots left";
   //----
   String btnText = "Volunteer";
+  bool cancel = false;
 
   List<Color> _colors = <Color>[
     ColorConstants.redText,
@@ -35,9 +36,16 @@ class _oppPageState extends State<oppPage> {
 
   setCancelText() {
     btnText = "Cancel Volunteer";
-    GestureDetector(
-      child: cancelText(),
-    );
+    if (cancel) {
+      cancelText();
+    }
+  }
+
+  volText() {
+    setState(() {
+      btnText = 'Volunteer';
+      // Replace with your logic
+    });
   }
 
   cancelText() {
@@ -68,43 +76,54 @@ class _oppPageState extends State<oppPage> {
                     ),
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        child: OutlinedButton(
-                          onPressed: () {
-                            Navigator.of(context, rootNavigator: true)
-                                .pop('dialog');
-                            volText();
-                          },
-                          style: OutlinedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Container(
+                          child: OutlinedButton(
+                            onPressed: () {
+                              volText();
+                              setState(() {
+                                _hasBeenPressed = !_hasBeenPressed;
+                              });
+                              cancel = false;
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                            },
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              minimumSize: Size(100, 45),
+                              backgroundColor: ColorConstants.green,
                             ),
-                            minimumSize: Size(100, 45),
-                            backgroundColor: ColorConstants.green,
-                          ),
-                          child: Text(
-                            'Yes',
-                            style: TextStyle(color: Colors.white),
+                            child: Text(
+                              'Yes',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
                         ),
                       ),
-                      Container(
-                        child: OutlinedButton(
-                          onPressed: () {
-                            Navigator.of(context, rootNavigator: true)
-                                .pop('dialog');
-                          },
-                          style: OutlinedButton.styleFrom(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15),
+                      Padding(
+                        padding: const EdgeInsets.all(5.0),
+                        child: Container(
+                          child: OutlinedButton(
+                            onPressed: () {
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                            },
+                            style: OutlinedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              minimumSize: Size(100, 45),
+                              backgroundColor: Colors.white,
                             ),
-                            minimumSize: Size(100, 45),
-                            backgroundColor: Colors.white,
-                          ),
-                          child: Text(
-                            'No',
-                            style: TextStyle(color: ColorConstants.green),
+                            child: Text(
+                              'No',
+                              style: TextStyle(color: ColorConstants.green),
+                            ),
                           ),
                         ),
                       )
@@ -116,13 +135,6 @@ class _oppPageState extends State<oppPage> {
           );
         },
       );
-    });
-  }
-
-  volText() {
-    setState(() {
-      btnText = 'Volunteer';
-      // Replace with your logic
     });
   }
 
@@ -203,20 +215,22 @@ class _oppPageState extends State<oppPage> {
                     onPressed: () {
                       setState(() {
                         _hasBeenPressed = !_hasBeenPressed;
+                        setCancelText();
                       });
-                      setCancelText();
+                      cancel = true;
                     },
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),
+                      minimumSize: Size(300, 45),
                       backgroundColor: _hasBeenPressed
                           ? ColorConstants.offWhite
                           : ColorConstants.redText,
                     ),
                     child: Text(
                       btnText,
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                     ),
                   ),
                 ),
