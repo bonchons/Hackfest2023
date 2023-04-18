@@ -174,7 +174,7 @@ class _oppPageState extends State<oppPage> {
                         child: CircleAvatar(
                           radius: 35,
                           backgroundColor: Colors.black,
-                          child: Image.asset('assets/images/settings.png',
+                          child: Image.asset('assets/images/RedAlert.png',
                               fit: BoxFit.contain),
                         ),
                       ),

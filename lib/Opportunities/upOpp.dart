@@ -68,7 +68,7 @@ class _upOppState extends State<upOpp> {
                               child: CircleAvatar(
                                 radius: 30,
                                 backgroundColor: Colors.black,
-                                child: Image.asset('assets/images/settings.png',
+                                child: Image.asset('assets/images/RedAlert.png',
                                     fit: BoxFit.contain),
                               ),
                             ),
@@ -226,7 +226,7 @@ class _upOppState extends State<upOpp> {
                               child: CircleAvatar(
                                 radius: 30,
                                 backgroundColor: Colors.black,
-                                child: Image.asset('assets/images/settings.png',
+                                child: Image.asset('assets/images/RedAlert.png',
                                     fit: BoxFit.contain),
                               ),
                             ),
@@ -384,7 +384,7 @@ class _upOppState extends State<upOpp> {
                               child: CircleAvatar(
                                 radius: 30,
                                 backgroundColor: Colors.black,
-                                child: Image.asset('assets/images/settings.png',
+                                child: Image.asset('assets/images/RedAlert.png',
                                     fit: BoxFit.contain),
                               ),
                             ),
@@ -542,7 +542,7 @@ class _upOppState extends State<upOpp> {
                               child: CircleAvatar(
                                 radius: 30,
                                 backgroundColor: Colors.black,
-                                child: Image.asset('assets/images/settings.png',
+                                child: Image.asset('assets/images/RedAlert.png',
                                     fit: BoxFit.contain),
                               ),
                             ),
@@ -700,7 +700,7 @@ class _upOppState extends State<upOpp> {
                               child: CircleAvatar(
                                 radius: 30,
                                 backgroundColor: Colors.black,
-                                child: Image.asset('assets/images/settings.png',
+                                child: Image.asset('assets/images/RedAlert.png',
                                     fit: BoxFit.contain),
                               ),
                             ),
