@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hackfest2023/Login/login.dart';
 import 'package:hackfest2023/Opportunities/volOppPage.dart';
 
 class profile extends StatefulWidget {
@@ -8,6 +10,8 @@ class profile extends StatefulWidget {
   @override
   State<profile> createState() => _profileState();
 }
+
+final user = FirebaseAuth.instance.currentUser!;
 
 class _profileState extends State<profile> {
   final List<String> items = List.generate(5, (index) => "Item $index");
@@ -18,10 +22,22 @@ class _profileState extends State<profile> {
     'Red Alert',
     'Safety Check'
   ];
+
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            onPressed: signUserOut,
+            icon: Icon(Icons.logout),
+          )
+        ],
         title: Text("Hackfest"),
 
         // backgroundColor: const Color(0xFF0079BD),
@@ -48,7 +64,7 @@ class _profileState extends State<profile> {
                             children: [
                               // --- Welcome text
                               Text(
-                                'Welcome, Julia!',
+                                'Welcome, ' + user.email! + ' !',
                                 style: TextStyle(
                                   fontSize: 30,
                                   fontWeight: FontWeight.bold,

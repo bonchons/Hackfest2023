@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+
+import 'login.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -8,6 +11,46 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
+  final _controllerEmail = TextEditingController();
+  final _controllerPassword = TextEditingController();
+  final _controllerUsername = TextEditingController();
+  void signUserUp() async {
+    void wrongEmailMessage() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(
+            title: Text('Incorrect Email'),
+          );
+        },
+      );
+    }
+
+    void wrongPasswordMessage() {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(
+            title: Text('Incorrect Password'),
+          );
+        },
+      );
+    }
+
+    try {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: _controllerEmail.text, password: _controllerPassword.text);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        wrongEmailMessage();
+      } else if (e.code == 'wrong-password') {
+        wrongPasswordMessage();
+      }
+    }
+
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Login()));
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -52,6 +95,7 @@ class _RegisterState extends State<Register> {
                   Container(
                     margin: EdgeInsets.only(top: 25),
                     child: TextField(
+                      controller: _controllerEmail,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Color(0xFFEBEBEB),
@@ -70,6 +114,7 @@ class _RegisterState extends State<Register> {
                   Container(
                     margin: EdgeInsets.only(top: 25),
                     child: TextField(
+                      controller: _controllerUsername,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Color(0xFFEBEBEB),
@@ -88,6 +133,8 @@ class _RegisterState extends State<Register> {
                   Container(
                     margin: EdgeInsets.only(top: 25),
                     child: TextField(
+                      controller: _controllerPassword,
+                      obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Color(0xFFEBEBEB),
@@ -123,8 +170,7 @@ class _RegisterState extends State<Register> {
                               color: Colors.white),
                         ),
                         onPressed: () {
-                          // Navigator.push(context,
-                          //     MaterialPageRoute(builder: (context) => Login()));
+                          signUserUp();
                         },
                       ),
                     ),
@@ -151,10 +197,10 @@ class _RegisterState extends State<Register> {
                                 color: Color(0xFF0079BD)),
                           ),
                           onTap: () {
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => Login()));
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Login()));
                           },
                         ),
                       ),
