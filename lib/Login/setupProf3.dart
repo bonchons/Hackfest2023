@@ -1,123 +1,127 @@
 import 'package:flutter/material.dart';
+import 'package:hackfest2023/constants.dart';
 
-class MyApp extends StatelessWidget {
+class ProfileSetupScreen extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Set Up your Profile',
-      home: ProfileSetup(),
-    );
-  }
+  _ProfileSetupScreenState createState() => _ProfileSetupScreenState();
 }
 
-class ProfileSetup extends StatefulWidget {
-  @override
-  _ProfileSetupState createState() => _ProfileSetupState();
-}
-
-class _ProfileSetupState extends State<ProfileSetup> {
-  String name = '';
-  String age = '';
-  String location = '';
+class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
+  final TextEditingController _experienceController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Experience'),
-        backgroundColor: Colors.green,
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16.0),
-              child: Text(
-                'Personal information',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.0,
+        backgroundColor: ColorConstants.offWhite,
+        appBar: AppBar(
+          title: Text('Set Up Your Profile'),
+        ),
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child:
+              Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
+            Text(
+              'Experience',
+              style: TextStyle(
+                fontSize: 24.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'Credibility',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8.0),
+            Text(
+              'Upload your certificates to verify your credibility',
+              style: TextStyle(fontSize: 16.0),
+            ),
+            SizedBox(height: 8.0),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 1.0,
+                ),
+              ),
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: Icon(Icons.file_upload),
+                    onPressed: () {},
+                  ),
+                  Expanded(
+                    child: Text(
+                      'Add a new file',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 16.0),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 16.0),
+            Text(
+              'Work Experience',
+              style: TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 8.0),
+            TextField(
+              controller: _experienceController,
+              keyboardType: TextInputType.multiline,
+              maxLines: null,
+              decoration: InputDecoration(
+                hintText:
+                    'You can write about your years of experience, industry, or skills.',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.green,
+                    width: 2.0,
+                  ),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(
+                    color: Colors.grey,
+                    width: 1.0,
+                  ),
                 ),
               ),
             ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Name',
-              ),
-              onChanged: (value) {
-                setState(() {
-                  name = value;
-                });
-              },
-            ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Age',
-              ),
-              onChanged: (value) {
-                setState(() {
-                  age = value;
-                });
-              },
-            ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Location',
-              ),
-              onChanged: (value) {
-                setState(() {
-                  location = value;
-                });
-              },
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
+            Container(
+              margin: EdgeInsets.only(top: 15),
               child: ElevatedButton(
-                onPressed: () {
-                  // Do something with the data
-                },
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    minimumSize: Size(100, 45),
+                    backgroundColor: ColorConstants.green,
+                    shadowColor: Colors.transparent),
+                onPressed: () {},
                 child: Text(
                   'Confirm',
                   style: TextStyle(
-                    fontSize: 18.0,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 32.0,
-                    vertical: 16.0,
+                    color: Colors.white,
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 32.0),
-              child: Text(
-                'Upload your certificates to verify your credibility',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 24.0,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 16.0, bottom: 32.0),
-              child: Text(
-                'You can write about your years of experience, industry or skills.',
-                style: TextStyle(
-                  fontSize: 16.0,
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+            )
+          ]),
+        ));
   }
 }

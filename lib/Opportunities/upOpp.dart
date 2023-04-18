@@ -198,13 +198,13 @@ class _upOppState extends State<upOpp> {
                   ),
                 ),
               ),
-            )
-            // GestureDetector(
-            //     onTap: () {
-            //       Navigator.of(context).push(MaterialPageRoute(
-            //           builder: (context) => SetUpProfileScreen()));
-            //     },
-            //     child: Text('HAHA')),
+            ),
+            GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => SetUpProfileScreen()));
+                },
+                child: Text('HAHA')),
           ],
         ),
       ),

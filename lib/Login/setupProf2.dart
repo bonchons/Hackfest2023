@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hackfest2023/Login/setupProf3.dart';
+import 'package:hackfest2023/constants.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -29,6 +30,7 @@ class _SetUpProfileScreenState extends State<SetUpProfileScreen> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        backgroundColor: ColorConstants.offWhite,
         appBar: AppBar(
             title: Text('Set Up Profile'),
             centerTitle: true,
@@ -67,7 +69,7 @@ class _SetUpProfileScreenState extends State<SetUpProfileScreen> {
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProfileSetup()));
+                        builder: (context) => ProfileSetupScreen()));
                   },
                   child: Text('Confirm', style: TextStyle(color: Colors.white)),
                   style: ElevatedButton.styleFrom(
